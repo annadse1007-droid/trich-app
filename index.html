@@ -1,60 +1,313 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>TRICH Assessment</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>TRICH</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.logo {
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    width: 120px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 120px 20px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 70px;
+    text-align: center;
+    color: #D4AF37;
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: #D4AF37;
+    margin-top: 100px;
+}
+
+p {
+    line-height: 1.8;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+ul { padding-left: 20px; }
+li { margin-bottom: 10px; }
+
+.highlight {
+    color: #D4AF37;
+    font-weight: 500;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+}
+
+.section iframe {
+    width: 450px;
+    border-radius: 12px;
+}
+
+/* ===== SCORE BARS ===== */
+
+.score-section {
+    margin-top: 60px;
+}
+
+.tier-block {
+    margin-bottom: 50px;
+}
+
+.bar {
+    height: 28px;
+    background: #222;
+    border-radius: 30px;
+    overflow: hidden;
+    margin: 12px 0;
+    box-shadow: 0 0 10px rgba(212,175,55,0.3);
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #D4AF37, #FFD700);
+    width: 0%;
+    transition: width 1.2s ease;
+}
+
+.bar-label {
+    font-size: 14px;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- =========================
-       TRICH ASSESSMENT FORM
-       ========================= -->
-  <section class="form-section">
-    <h1>TRICH Self-Assessment</h1>
-    <p class="subtitle">
-      Discover your strengths across Wealth, Health & Purpose
-    </p>
+<img src="logo.png" class="logo">
+<canvas id="canvas"></canvas>
 
-    <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLSeAEQ5TP6xcxvwzlg-TEfFxhvRWlfejvMBJ468YfilUmztjsw/viewform?embedded=true"
-      width="100%"
-      height="900"
-      frameborder="0"
-      marginheight="0"
-      marginwidth="0">
-      Loading…
-    </iframe>
-  </section>
+<div class="container">
 
-  <!-- =========================
-       TRICH RESULT DASHBOARD
-       ========================= -->
-  <div class="container">
-    <h1>TRICH Assessment Result</h1>
-    <p id="name">Loading...</p>
+<h1>TRICH</h1>
 
-    <div class="card">
-      <h3>Wealth</h3>
-      <div class="bar"><div id="wealthBar"></div></div>
-      <span id="wealthText"></span>
-    </div>
+<p>
+TRICH is a performance and life architecture framework designed for high-achieving professionals who refuse to be successful in only one dimension of life.
+</p>
 
-    <div class="card">
-      <h3>Health</h3>
-      <div class="bar"><div id="healthBar"></div></div>
-      <span id="healthText"></span>
-    </div>
+<p>
+TRICH is built on the belief that <span class="highlight">true wealth is multidimensional.</span>
+</p>
 
-    <div class="card">
-      <h3>Purpose</h3>
-      <div class="bar"><div id="purposeBar"></div></div>
-      <span id="purposeText"></span>
-    </div>
+<!-- HEALTH -->
+<div class="section">
+<div>
+<h2>Health</h2>
+<p>Without physical energy and mental clarity, achievement collapses.</p>
+<ul>
+<li>Sustainable body composition and strength</li>
+<li>Metabolic health and longevity</li>
+<li>Mental resilience and emotional stability</li>
+<li>Daily discipline and recovery</li>
+</ul>
+</div>
+<iframe src="https://giphy.com/embed/3o7aD2saalBwwftBIY" frameBorder="0"></iframe>
+</div>
 
-    <h2 id="level"></h2>
-  </div>
+<!-- WEALTH -->
+<div class="section">
+<iframe src="https://giphy.com/embed/l0MYt5jPR6QX5pnqM" frameBorder="0"></iframe>
+<div>
+<h2>Wealth</h2>
+<p>Wealth is leverage and relationships.</p>
+<ul>
+<li>Income growth and capital allocation</li>
+<li>Asset ownership</li>
+<li>Relationship capital</li>
+<li>Professional positioning</li>
+</ul>
+</div>
+</div>
 
-  <script src="script.js"></script>
+<!-- PURPOSE -->
+<div class="section">
+<div>
+<h2>Purpose</h2>
+<p>Purpose transforms success into significance.</p>
+<ul>
+<li>Contribution beyond self</li>
+<li>Mentorship and structured giving</li>
+<li>Building institutions</li>
+<li>Legacy creation</li>
+</ul>
+</div>
+<iframe src="https://giphy.com/embed/xT9IgzoKnwFNmISR8I" frameBorder="0"></iframe>
+</div>
+
+<h2>The TRICH Standard</h2>
+<p>The TRICH Diagnostic Score evaluates where you stand today across all three pillars.</p>
+
+<!-- ===== TIER SYSTEM ===== -->
+
+<h2>TRICH Tier System</h2>
+
+<div class="score-section">
+
+<div class="tier-block">
+<h3 class="highlight">Wealth Tier</h3>
+<div class="bar"><div class="bar-fill" id="wealthBar"></div></div>
+<div class="bar-label" id="wealthLabel"></div>
+</div>
+
+<div class="tier-block">
+<h3 class="highlight">Health Tier</h3>
+<div class="bar"><div class="bar-fill" id="healthBar"></div></div>
+<div class="bar-label" id="healthLabel"></div>
+</div>
+
+<div class="tier-block">
+<h3 class="highlight">Purpose Tier</h3>
+<div class="bar"><div class="bar-fill" id="purposeBar"></div></div>
+<div class="bar-label" id="purposeLabel"></div>
+</div>
+
+</div>
+
+<p class="highlight" style="margin-top:40px; font-size:22px;">
+TRICH is not motivation. It is a system.
+</p>
+
+</div>
+
+<script>
+/* ===== PARTICLES ===== */
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.speedY = (Math.random() - 0.5) * 0.3;
+        this.opacity = Math.random() * 0.7 + 0.3;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+    }
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(212,175,55,${this.opacity})`;
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = "#D4AF37";
+        ctx.fill();
+    }
+}
+
+function init() {
+    particles = [];
+    for (let i = 0; i < 130; i++) {
+        particles.push(new Particle());
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animate);
+}
+
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    init();
+});
+
+init();
+animate();
+
+/* ===== TRICH SCORING LOGIC ===== */
+
+let wealthScore = 62;   // Change dynamically later
+let healthScore = 48;
+let purposeScore = 34;
+
+function wealthTier(score){
+    if(score <= 39) return 1;
+    if(score <= 54) return 2;
+    if(score <= 69) return 3;
+    if(score <= 84) return 4;
+    return 5;
+}
+
+function healthTier(score){
+    if(score >= 15 && score <= 24) return 1;
+    if(score <= 39) return 2;
+    if(score <= 54) return 3;
+    if(score <= 69) return 4;
+    return 5;
+}
+
+function purposeTier(score){
+    if(score >= 10 && score <= 16) return 1;
+    if(score <= 23) return 2;
+    if(score <= 30) return 3;
+    if(score <= 37) return 4;
+    return 5;
+}
+
+function updateBar(score, maxScore, barId, labelId, tier){
+    let percentage = (score / maxScore) * 100;
+    document.getElementById(barId).style.width = percentage + "%";
+    document.getElementById(labelId).innerText =
+        "Score: " + score + " → Tier " + tier;
+}
+
+updateBar(wealthScore, 100, "wealthBar", "wealthLabel", wealthTier(wealthScore));
+updateBar(healthScore, 75, "healthBar", "healthLabel", healthTier(healthScore));
+updateBar(purposeScore, 50, "purposeBar", "purposeLabel", purposeTier(purposeScore));
+
+</script>
+
 </body>
 </html>
