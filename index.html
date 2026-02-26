@@ -80,29 +80,125 @@ background:black;
 p{
 max-width:850px;
 margin:15px auto;
+font-size:18px;
 }
 
-strong{
+.highlight{
+color:#d4af37;
+font-weight:600;
+}
+
+/* Motion */
+
+.motion{
+width:85%;
+max-width:1100px;
+height:360px;
+margin:50px auto;
+border-radius:18px;
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+box-shadow:0 25px 60px rgba(0,0,0,0.7);
+}
+
+/* RESULT CARDS */
+
+.results-container{
+max-width:700px;
+margin:60px auto 0 auto;
+}
+
+.card{
+background:#111;
+padding:25px;
+border-radius:18px;
+margin-bottom:30px;
+box-shadow:0 15px 40px rgba(0,0,0,0.6);
+border:1px solid #222;
+}
+
+.card h3{
+color:#d4af37;
+margin:0;
+}
+
+.score{
+font-size:14px;
+opacity:0.8;
+margin-top:5px;
+}
+
+.progress{
+width:100%;
+height:14px;
+background:#222;
+border-radius:20px;
+overflow:hidden;
+margin:15px 0;
+}
+
+.fill{
+height:100%;
+width:0;
+border-radius:20px;
+transition:width 1s ease;
+}
+
+.wealth{ background:linear-gradient(90deg,#b8860b,#ffd700); }
+.health{ background:linear-gradient(90deg,#0f766e,#22c55e); }
+.purpose{ background:linear-gradient(90deg,#7c3aed,#c084fc); }
+
+.tier{
+font-weight:bold;
+margin-top:8px;
 color:#d4af37;
 }
 
-/* Motion Blocks */
-
-.motion{
-height:300px;
-margin:40px 0;
-border-radius:10px;
-background-size:cover;
-background-position:center;
+.total{
+text-align:center;
+font-size:22px;
+margin-top:30px;
+font-weight:bold;
+color:#d4af37;
 }
 
-/* Footer */
+/* LADDER */
+
+.ladder{
+max-width:800px;
+margin:40px auto 0 auto;
+text-align:left;
+background:#0e0e0e;
+padding:25px 30px;
+border-radius:16px;
+border:1px solid #222;
+box-shadow:0 15px 40px rgba(0,0,0,0.6);
+}
+
+.ladder h4{
+color:#d4af37;
+margin-bottom:20px;
+font-family:'Playfair Display',serif;
+font-size:20px;
+}
+
+.ladder-line{
+margin:8px 0;
+color:#ccc;
+font-size:15px;
+}
+
+.ladder-line strong{
+color:#d4af37;
+}
 
 footer{
 padding:40px;
 text-align:center;
 border-top:1px solid #222;
 color:#777;
+margin-top:100px;
 }
 
 </style>
@@ -110,50 +206,26 @@ color:#777;
 
 <body>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 
 <div class="hero">
 <div class="hero-content">
-
-<img src="./logo.png" class="logo" alt="TRICH Logo">
-
+<img src="./logo.png" class="logo">
 <h1>TRICH (Triple Rich)</h1>
 <div class="gold-line"></div>
 <h2>Health , Wealth & Purpose</h2>
-
 </div>
 </div>
-
-<!-- INTRO -->
-
-<section>
-
-<p>
-TRICH is a performance and life architecture framework designed for high-achieving professionals who refuse to be successful in only one dimension of life.
-</p>
-
-<p>
-Most people optimize for income.  
-Some optimize for fitness.  
-Very few intentionally build all three pillars together.
-</p>
-
-<p>
-TRICH is built on the belief that true wealth is multidimensional.
-</p>
-
-</section>
 
 <!-- HEALTH -->
 
 <section>
-
 <h2>Health</h2>
 <div class="gold-line"></div>
 
-<div class="motion" style="background-image:url('https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif');"></div>
+<div class="motion" style="background-image:url('./health.gif');"></div>
 
-<p><strong>Without physical energy and mental clarity, achievement collapses.</strong></p>
+<p class="highlight">Without physical energy and mental clarity, achievement collapses.</p>
 
 <p>
 Sustainable body composition and strength<br>
@@ -162,20 +234,37 @@ Mental resilience and emotional stability<br>
 Daily discipline and recovery
 </p>
 
-<p><strong>Health is not aesthetics. It is capacity.</strong></p>
+<p class="highlight">Health is not aesthetics. It is capacity.</p>
+
+<div class="results-container">
+<div class="card">
+<h3>💪 Health Score</h3>
+<div class="score">Score: <span id="healthScore"></span></div>
+<div class="progress"><div class="fill health" id="healthBar"></div></div>
+<div class="tier" id="healthTier"></div>
+</div>
+</div>
+
+<div class="ladder">
+<h4>💪 Health Ladder</h4>
+<div class="ladder-line">Level 5 ───── <strong>Elite / Shredded</strong> (40 pts)</div>
+<div class="ladder-line">Level 4 ────  <strong>Athletic</strong> (32 pts)</div>
+<div class="ladder-line">Level 3 ───   <strong>Fit and Active</strong> (24 pts)</div>
+<div class="ladder-line">Level 2 ──    <strong>Functional Fitness</strong> (16 pts)</div>
+<div class="ladder-line">Level 1 ─     <strong>Basic Awareness</strong> (8 pts)</div>
+</div>
 
 </section>
 
 <!-- WEALTH -->
 
 <section>
-
 <h2>Wealth</h2>
 <div class="gold-line"></div>
 
-<div class="motion" style="background-image:url('https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif');"></div>
+<div class="motion" style="background-image:url('./wealth.gif');"></div>
 
-<p><strong>Wealth is more than money. It is leverage and relationships.</strong></p>
+<p class="highlight">Wealth is more than money. It is leverage and relationships.</p>
 
 <p>
 Income growth and capital allocation<br>
@@ -184,20 +273,37 @@ Relationship capital<br>
 Reputation and professional positioning
 </p>
 
-<p><strong>Money gives options. Relationships multiply options.</strong></p>
+<p class="highlight">Money gives options. Relationships multiply options.</p>
+
+<div class="results-container">
+<div class="card">
+<h3>💰 Wealth Score</h3>
+<div class="score">Score: <span id="wealthScore"></span></div>
+<div class="progress"><div class="fill wealth" id="wealthBar"></div></div>
+<div class="tier" id="wealthTier"></div>
+</div>
+</div>
+
+<div class="ladder">
+<h4>💰 Wealth Ladder</h4>
+<div class="ladder-line">Level 5 ───── <strong>Abundance Architect</strong> (40 pts)</div>
+<div class="ladder-line">Level 4 ────  <strong>Wealth Creator</strong> (32 pts)</div>
+<div class="ladder-line">Level 3 ───   <strong>Balanced Builder</strong> (24 pts)</div>
+<div class="ladder-line">Level 2 ──    <strong>Stable Supporter</strong> (16 pts)</div>
+<div class="ladder-line">Level 1 ─     <strong>Financially Aware</strong> (8 pts)</div>
+</div>
 
 </section>
 
 <!-- PURPOSE -->
 
 <section>
-
 <h2>Purpose</h2>
 <div class="gold-line"></div>
 
-<div class="motion" style="background-image:url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif');"></div>
+<div class="motion" style="background-image:url('./purpose.gif');"></div>
 
-<p><strong>Purpose transforms success into significance.</strong></p>
+<p class="highlight">Purpose transforms success into significance.</p>
 
 <p>
 Contribution beyond self<br>
@@ -206,41 +312,41 @@ Building institutions, not just income<br>
 Creating impact that outlives you
 </p>
 
-<p><strong>Purpose converts achievement into meaning.</strong></p>
+<p class="highlight">Purpose converts achievement into meaning.</p>
+
+<div class="results-container">
+<div class="card">
+<h3>🎯 Purpose Score</h3>
+<div class="score">Score: <span id="purposeScore"></span></div>
+<div class="progress"><div class="fill purpose" id="purposeBar"></div></div>
+<div class="tier" id="purposeTier"></div>
+</div>
+</div>
+
+<div class="ladder">
+<h4>🎯 Purpose Ladder</h4>
+<div class="ladder-line">Level 5 ───── <strong>Systemic Changemaker</strong> (40 pts)</div>
+<div class="ladder-line">Level 4 ────  <strong>Impact Leader</strong> (32 pts)</div>
+<div class="ladder-line">Level 3 ───   <strong>Hands-On Contributor</strong> (24 pts)</div>
+<div class="ladder-line">Level 2 ──    <strong>Active Supporter</strong> (16 pts)</div>
+<div class="ladder-line">Level 1 ─     <strong>Compassionate Observer</strong> (8 pts)</div>
+</div>
 
 </section>
 
-<!-- STANDARD -->
-
 <section>
-
-<h2>The TRICH Standard</h2>
-<div class="gold-line"></div>
-
-<p>Each pillar is measurable.</p>
-<p>Each pillar is trainable.</p>
-<p>Each pillar compounds.</p>
-
-<p>
-The TRICH Diagnostic Score (0–120) evaluates where you stand today and highlights where disciplined growth is required.
-</p>
-
-<p><strong>The goal is not balance. The goal is alignment.</strong></p>
-
-<p>
-When Health fuels Wealth,<br>
-and Wealth funds Purpose,<br>
-life moves from success to significance.
-</p>
-
-<p><strong>TRICH is not motivation. It is a system.</strong></p>
-
+<div class="total" id="totalScore"></div>
 </section>
 
 <footer>
 © 2026 TRICH | Triple Rich – Health, Wealth & Purpose
 </footer>
 
+<script>
+
+
+
+</script>
+
 </body>
 </html>
-
